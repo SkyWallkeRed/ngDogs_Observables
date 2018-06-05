@@ -11,30 +11,40 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DogsComponent implements OnInit {
 
-  selectedDog : Dog;
+  selectedDog: Dog;
   dogs = new Array<Dog>();
-  filterTerm : string;
-  dateFormat = 'fullDate'
-  
+  filterTerm: string;
+  dateFormat = 'fullDate';
 
-  constructor(private dogsService : DogsService, private route : ActivatedRoute, private router : Router) {
-    this.dogs = dogsService.getDogs();
-   }
+
+  constructor(private dogsService: DogsService, private route: ActivatedRoute, private router: Router) {
+    // this.dogs = dogsService.getDogs();
+
+  }
 
   ngOnInit() {
     this.route.queryParams.subscribe(queryParams => {
       this.filterTerm = queryParams.name;
     });
-    }
+    // this.dogsService.getDogs().subscribe((results) => {
+    //   this.dogs = results;
+    // });
+    this.dogsService.getDogs();
+    this.dogsService.dogsOnUpdated.subscribe((result) => {
+      this.dogs = result;
+    });
+  }
 
 
   onFilterChanged(filterString) {
-    this.router.navigate(['.'], { queryParams: { name: filterString }});
+    // this.router.navigate(['.'], { queryParams: { name: filterString } });
+    this.dogsService.onFilterChanged(filterString);
   }
 
   removeDog(id) {
     this.dogsService.removeDog(id);
-    this.dogsService.dogCountSubject.next();
+    // this.dogsService.dogCountSubject.next();
+
   }
 
   toggleDate() {

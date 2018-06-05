@@ -7,8 +7,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class FilterComponent implements OnInit {
 
-  @Input() filterString : string;
-  @Output() filterChanged : EventEmitter<string> = new EventEmitter<string>();
+  @Input() filterString: string;
+  @Output() filterChanged: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
 
