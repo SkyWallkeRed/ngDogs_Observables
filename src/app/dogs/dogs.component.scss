@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+
+    .list-container {
+        flex: 3;
+        flex-grow: 3; 
+        
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 15px;
+            margin-top: 15px;
+            
+            .dog-card {
+                margin-top: 15px;
+                max-width: 400px;
+            }
+        }
+        
+        .button-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        
+    }
+
+    .expander-container {
+        flex: 1;
+    }
+    
+}
+
+

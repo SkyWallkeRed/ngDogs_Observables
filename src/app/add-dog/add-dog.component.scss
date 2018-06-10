@@ -1,0 +1,23 @@
+.content-container {
+    display: grid;
+    grid-template-columns: 75% 25%;
+
+    .form {
+        grid-column: 1 / 1;
+
+        .message { 
+            font-size: 0.8em 
+        }
+
+        .warning {
+            color: red;
+        }
+
+    }
+
+    .img-dog {
+        grid-column: 2 / 2;
+        display: block;
+        max-width: 100%;
+    }
+}
